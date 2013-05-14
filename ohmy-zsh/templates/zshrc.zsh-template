@@ -12,6 +12,7 @@ ZSH_THEME="mmm"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -34,8 +35,15 @@ plugins=(git svn)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
-export TERM="screen-256color"
 
-eval `dircolors ~/.dircolors`
+
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
+export M2_HOME=/usr/local/apache-maven-3.0.4
+export MAVEN_HOME=/usr/local/apache-maven-3.0.4
+export M2=/usr/local/apache-maven-3.0.4/bin
+
+# Customize to your needs...
+export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$M2:$JAVA_HOME
+
+
+export TERM="screen-256color"

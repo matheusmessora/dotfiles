@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/tqi_mmessora/.vim/bundle/nerdtree'
-let g:netrw_dirhist_2='/home/tqi_mmessora/Templates'
-let g:netrw_dirhist_3='/home/tqi_mmessora/.oh-my-zsh'
-let g:netrw_dirhist_4='/home/tqi_mmessora/.vim'
-let g:netrw_dirhist_5='/home/tqi_mmessora/Development/pessoal/git/dotfiles/oh-my-zsh/plugins/svn'
-let g:netrw_dirhist_6='/home/tqi_mmessora/.fontconfig'

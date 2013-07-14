@@ -37,7 +37,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_45
 export M2_HOME=/usr/local/apache-maven-3.0.4
 export MAVEN_HOME=/usr/local/apache-maven-3.0.4
 export M2=/usr/local/apache-maven-3.0.4/bin

@@ -12,6 +12,17 @@ ZSH_THEME="mmm"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias ls='ls -F'
 alias matheus="ps -ef"
+alias apt-get="sudo apt-get"
+alias ports="netstat -tulanp"
+alias port="netstat -tulanp"
+
+#SSH - Maquinas
+alias jadif="ssh a1-jadif-q-pla2"
+alias jadi="ssh a1-jadi-s-pla4"
+alias hum="ssh a1-hum-s-pla4"
+alias hunf="ssh a1-hunf-q-pla1"
+alias haloq="ssh a1-halo-q-pla1"
+alias halos="ssh a1-halo-s-pla4"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

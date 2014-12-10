@@ -2,10 +2,14 @@
 green="\033[0;32m"
 red="\033[0;31m"
 blue="\033[0;34m"
+orange="\033[0;33m"
 NC='\033[0m' # No Color
 
 function info { 
    echo -e "${blue}$1${NC}"
+}
+function warn {
+   echo -e "${orange}$1${NC}"
 }
 
 
@@ -70,6 +74,7 @@ git config --global user.name $username
 info "Provide your GIT user.email"
 read email
 git config --global user.email $email
+git config --global push.default simple
 info "This is your actual GIT config file"
 cat $HOME/.gitconfig
 
@@ -116,6 +121,25 @@ wget --no-check-certificate http://c758482.r82.cf2.rackcdn.com/sublime-text_buil
 sudo dpkg -i sublime-text_build-3065_amd64.deb
 fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
+
+
+###########################################################################
+fase="Installing GNOME"
+echo -e "${green}[START] ${fase}${NC}"
+warn "[ATTENTION] This script will add some ppa repositories from gnome3-team. It can cause some graphical problems"
+info "Should GNOME be installed? Y/n"
+read -n1 answer
+if [[ $answer = "Y" || $answer = "y" ]]; then
+info "If you insists... MAESTRO is now installing GNOME3"
+sudo add-apt-repository ppa:gnome3-team/gnome3-staging
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get install gnome-weather gnome-maps gnome-photos gnome-music
+sudo apt-get update
+sudo apt-get install bijiben polari gnome-clocks gnome-weather gnome-maps gnome-music gnome-photos gnome-documents gnome-contacts epiphany-browser gnome-sushi gnome-boxes gnome-shell-extensions
+fi
+echo -e  "${green}[ END ] ${fase}\n\n${NC}"
+
 
 
 

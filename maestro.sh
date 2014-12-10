@@ -126,17 +126,42 @@ echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 ###########################################################################
 fase="Installing GNOME"
 echo -e "${green}[START] ${fase}${NC}"
-warn "[ATTENTION] This script will add some ppa repositories from gnome3-team. It can cause some graphical problems"
+warn "[ATTENTION] This script will add some ppa repositories from gnome3-team.\nIt can cause some graphical problems"
 info "Should GNOME be installed? Y/n"
 read -n1 answer
 if [[ $answer = "Y" || $answer = "y" ]]; then
-info "If you insists... MAESTRO is now installing GNOME3"
+info "If you insists...\nMAESTRO is now installing GNOME3"
+warn "This step can take several minutes... Be patient! :)"
+sleep 1
 sudo add-apt-repository ppa:gnome3-team/gnome3-staging
 sudo apt-get update
 sudo apt-get dist-upgrade
-sudo apt-get install gnome-weather gnome-maps gnome-photos gnome-music
+sudo apt-get install gnome-weather gnome-maps gnome-photos gnome-music 
 sudo apt-get update
-sudo apt-get install bijiben polari gnome-clocks gnome-weather gnome-maps gnome-music gnome-photos gnome-documents gnome-contacts epiphany-browser gnome-sushi gnome-boxes gnome-shell-extensions
+sudo apt-get install gdm gnome-control-center gnome-session gnome-settings-daemon-schemas gnome-settings-daemon gnome-shell gnome-shell-extensions ubuntu-gnome-desktop
+fi
+echo -e  "${green}[ END ] ${fase}\n\n${NC}"
+
+
+###########################################################################
+fase="Installing WebStorm and IntelliJ"
+echo -e "${green}[START] ${fase}${NC}"
+info "Should I download and install? Y/n"
+read -n1 answer
+if [[ $answer = "Y" || $answer = "y" ]]; then
+info "Downloading IntelliJ 14.0.2"
+cd $home/tmp
+wget --no-check-certificate http://download-cf.jetbrains.com/idea/ideaIU-14.0.2.tar.gz
+info "Unzipping IntelliJ folder"
+tar -zxvf ideaIU-14.0.2.tar.gz
+mv $home/tmp/ideaIU-14.0.2 $home/apps -fv
+
+info "Downloading WebStorm 9"
+cd $home/tmp
+wget --no-check-certificate http://download-cf.jetbrains.com/webstorm/WebStorm-9.0.1.tar.gz
+info "Unzipping WebStorm folder"
+tar -zxvf WebStorm-9.0.1.tar.gz
+mv $home/tmp/WebStorm-9.0.1 $home/apps -fv
 fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 

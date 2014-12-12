@@ -36,7 +36,7 @@ echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 ###########################################################################
 fase="Installing Mandatory Packages"
 echo -e "${green}[START] ${fase}${NC}"
-sudo apt-get -y install git tmux zsh unzip unrar flashplugin-installer htop wget virtualbox httpie curl meld nginx
+sudo apt-get -y install git gitk tmux zsh unzip unrar flashplugin-installer htop wget virtualbox httpie curl meld nginx
 
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 ###########################################################################
@@ -88,7 +88,7 @@ info "Should I download and install? Y/n"
 read -n1 answer
 if [[ $answer = "Y" || $answer = "y" ]]; then
 info "This download will download the Google Chrome Stable 64bits for  Ubuntu"
-cd $home/tmp
+cd $HOME/tmp
 wget --no-check-certificate https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 fi
@@ -102,7 +102,7 @@ info "Should I download and install? Y/n"
 read -n1 answer
 if [[ $answer = "Y" || $answer = "y" ]]; then
 info "Downloading Brackets version 1.0.64-bits without Extract"
-cd $home/tmp
+cd $HOME/tmp
 wget --no-check-certificate https://github.com/adobe/brackets/releases/download/release-1.0/Brackets.Release.1.0.64-bit.deb
 sudo dpkg -i Brackets.Release.1.0.64-bit.deb
 fi
@@ -116,9 +116,10 @@ info "Should I download and install? Y/n"
 read -n1 answer
 if [[ $answer = "Y" || $answer = "y" ]]; then
 info "Downloading Sublime Text 3 version 3065 64-bits"
-cd $home/tmp
+cd $HOME/tmp
 wget --no-check-certificate http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3065_amd64.deb
 sudo dpkg -i sublime-text_build-3065_amd64.deb
+sudo ln -sf /opt/sublime_text/sublime_text /usr/local/bin/sublime
 fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
@@ -150,28 +151,38 @@ info "Should I download and install? Y/n"
 read -n1 answer
 if [[ $answer = "Y" || $answer = "y" ]]; then
 info "Downloading IntelliJ 14.0.2"
-cd $home/tmp
+cd $HOME/tmp
 wget --no-check-certificate http://download-cf.jetbrains.com/idea/ideaIU-14.0.2.tar.gz
 info "Unzipping IntelliJ folder"
 tar -zxvf ideaIU-14.0.2.tar.gz
-mv $home/tmp/ideaIU-14.0.2 $home/apps -fv
+mv $HOME/tmp/idea-IU-139.659.2 $HOME/apps -fv
+sudo ln -sf $HOME/apps/idea-IU-139.659.2/bin/idea.sh /usr/local/bin/idea
 
 info "Downloading WebStorm 9"
-cd $home/tmp
+cd $HOME/tmp
 wget --no-check-certificate http://download-cf.jetbrains.com/webstorm/WebStorm-9.0.1.tar.gz
 info "Unzipping WebStorm folder"
 tar -zxvf WebStorm-9.0.1.tar.gz
-mv $home/tmp/WebStorm-9.0.1 $home/apps -fv
+mv $HOME/tmp/WebStorm-139.252 $HOME/apps -fv
+sudo ln -sf $HOME/apps/WebStorm-139.252/bin/webstorm.sh /usr/local/bin/webstorm
 fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
 
-
-
-
-
-
-
+###########################################################################
+fase="Installing JDK 1.7"
+echo -e "${green}[START] ${fase}${NC}"
+info "Should I download and install? Y/n"
+read -n1 answer
+if [[ $answer = "Y" || $answer = "y" ]]; then
+info "Downloading Java JDK 1.7 64bits"
+cd $HOME/tmp
+wget --no-check-certificate http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.tar.gz
+info "Unzipping Java JDK"
+tar -zxvf jdk-7u71-linux-x64.tar.gz
+mv $HOME/tmp/jdk1.7.0_71 $HOME/apps -fv
+fi
+echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
 
 

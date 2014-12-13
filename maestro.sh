@@ -223,7 +223,6 @@ echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 fase="Configuring Nginx"
 echo -e "${green}[START] ${fase}${NC}"
 mkdir --parents $HOME/development/nginx/sites-enabled
-ln -sf $HOME/development/git/xXx-web/nginx.conf $HOME/development/nginx/sites-enabled/xxx
 #ln -sf $HOME/development/git/nfdonate/nginx.conf $HOME/development/nginx/sites-enabled/nfdonate
 sudo ln -sf $HOME/development/nginx/sites-enabled/* /etc/nginx/sites-enabled
 info "Restarting nginx"
@@ -236,11 +235,26 @@ echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 fase="Installing nodeJS + NPM"
 echo -e "${green}[START] ${fase}${NC}"
 info "I will use proprietary PPA for newer version of nodejs"
+info "Should I download and install? Y/n"
+read -n1 answer
+if [[ $answer = "Y" || $answer = "y" ]]; then
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get -y install nodejs
 sudo apt-get -y install build-essential
 npm install -g grunt-cli
+fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
+
+
+
+###########################################################################
+fase="Configuring CamX"
+echo -e "${green}[START] ${fase}${NC}"
+ln -sf $HOME/development/git/xXx-web/nginx.conf $HOME/development/nginx/sites-enabled/xxx
+sudo cat $HOME/development/git/xXx-web/hosts >> /etc/hosts
+echo -e  "${green}[ END ] ${fase}\n\n${NC}"
+
+
 
 
 

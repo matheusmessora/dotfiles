@@ -40,14 +40,6 @@ sudo apt-get -y install git gitk tmux zsh unzip unrar flashplugin-installer htop
 
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 ###########################################################################
-fase="Cloning Essencial Repos"
-echo -e "${green}[START] ${fase}${NC}"
-cd $HOME/development/git
-git clone https://github.com/matheusmessora/dotfiles
-git clone https://github.com/Anthony25/gnome-terminal-colors-solarized
-
-echo -e  "${green}[ END ] ${fase}\n\n${NC}"
-###########################################################################
 fase="Configuring Terminal"
 echo -e "${green}[START] ${fase}${NC}"
 info "Configuring ZSH... You must provide your root password!"
@@ -62,7 +54,19 @@ info "Creating symbolink for TMUX confs"
 ln -sf $HOME/development/git/dotfiles/tmux/tmux.conf $HOME/.conf.tmux
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
+###########################################################################
+fase="Cloning Essencial Repos"
+echo -e "${green}[START] ${fase}${NC}"
+cd $HOME/development/git
+git clone https://github.com/matheusmessora/dotfiles
+git clone https://github.com/Anthony25/gnome-terminal-colors-solarized
+git clone https://github.com/matheusmessora/xXx-web
+git clone https://github.com/matheusmessora/xXx
+git clone https://github.com/matheusmessora/nfdonate
+git clone https://github.com/matheusmessora/muonline
+git clone https://github.com/matheusmessora/muonline-api2
 
+echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 ###########################################################################
 fase="Configuring GIT"
 echo -e "${green}[START] ${fase}${NC}"
@@ -70,12 +74,8 @@ info "Removing ${HOME}/.gitconfig file"
 rm $HOME/.gitconfig -f
 info "Provide your GIT user.name"
 
-read username
-git config --global user.name $username
-info "Provide your GIT user.email"
-read email
-git config --global user.email $email
-git config --global push.default simple
+git config --global user.name "Matheus Messora"
+git config --global user.email matheus.messora.vpn@gmail.com
 info "This is your actual GIT config file"
 cat $HOME/.gitconfig
 
@@ -140,7 +140,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get install gnome-weather gnome-maps gnome-photos gnome-music 
 sudo apt-get update
-sudo apt-get install gdm gnome-control-center gnome-session gnome-settings-daemon-schemas gnome-settings-daemon gnome-shell gnome-shell-extensions ubuntu-gnome-desktop
+sudo apt-get install gdm gnome-control-center gnome-session gnome-settings-daemon-schemas gnome-settings-daemon gnome-shell gnome-shell-extensions ubuntu-gnome-desktop gnome-tweak-tool
 fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
@@ -192,6 +192,11 @@ echo -e "${green}[START] ${fase}${NC}"
 info "Should I download and install? Y/n"
 read -n1 answer
 if [[ $answer = "Y" || $answer = "y" ]]; then
+cd $HOME/tmp
+wget --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
+mv dircolors.ansi-dark $HOME/.dircolors -fv
+eval `dircolors ~/.dircolors`
+
 cd $HOME/development/git/gnome-terminal-colors-solarized
 info "\nNow I will execute install.sh from Solarized Theme. It will ask some questions, are you ready? (Press any key to continue)"
 read -n1 mamama
@@ -203,6 +208,29 @@ fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
 
+
+###########################################################################
+fase="Increasing Security!"
+echo -e "${green}[START] ${fase}${NC}"
+info "I will change yours /etc/hosts now."
+sudo mv $HOME/development/git/dotfiles/hosts/hosts /etc/hosts
+echo -e  "${green}[ END ] ${fase}\n\n${NC}"
+
+
+
+###########################################################################
+fase="Configuring Nginx"
+echo -e "${green}[START] ${fase}${NC}"
+mkdir --parents $HOME/development/nginx/sites-enabled
+ln -sf $HOME/development/git/xXx-web/nginx.conf $HOME/development/nginx/sites-enabled/xxx
+#ln -sf $HOME/development/git/nfdonate/nginx.conf $HOME/development/nginx/sites-enabled/nfdonate
+sudo ln -sf $HOME/development/nginx/sites-enabled/* /etc/nginx/sites-enabled
+echo -e  "${green}[ END ] ${fase}\n\n${NC}"
+
+
+
+
+echo -e  "Finished provisioning..."
 
 
 echo -e  "Finished provisioning..."

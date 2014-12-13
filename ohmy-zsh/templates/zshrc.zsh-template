@@ -71,21 +71,5 @@ export JAVA_HOME=$HOME/apps/jdk1.7.0_71
 export SUBLIME_HOME=$HOME/development/apps/sublime
 
 export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$SUBLIME_HOME/bin:$JAVA_HOME/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-#if [[ ! $TERM =~ screen ]]; then
-#    exec tmux
-#fi
+export TERM=xterm-256color  

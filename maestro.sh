@@ -214,7 +214,7 @@ echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 fase="Increasing Security!"
 echo -e "${green}[START] ${fase}${NC}"
 info "I will change yours /etc/hosts now."
-sudo mv $HOME/development/git/dotfiles/hosts/hosts /etc/hosts
+sudo cp $HOME/development/git/dotfiles/hosts/hosts /etc/hosts
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
 

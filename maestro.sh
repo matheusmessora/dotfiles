@@ -76,6 +76,7 @@ info "Provide your GIT user.name"
 
 git config --global user.name "Matheus Messora"
 git config --global user.email matheus.messora.vpn@gmail.com
+git config --global push.default simple
 info "This is your actual GIT config file"
 cat $HOME/.gitconfig
 
@@ -225,6 +226,20 @@ mkdir --parents $HOME/development/nginx/sites-enabled
 ln -sf $HOME/development/git/xXx-web/nginx.conf $HOME/development/nginx/sites-enabled/xxx
 #ln -sf $HOME/development/git/nfdonate/nginx.conf $HOME/development/nginx/sites-enabled/nfdonate
 sudo ln -sf $HOME/development/nginx/sites-enabled/* /etc/nginx/sites-enabled
+info "Restarting nginx"
+sudo service nginx restart
+echo -e  "${green}[ END ] ${fase}\n\n${NC}"
+
+
+
+###########################################################################
+fase="Installing nodeJS + NPM"
+echo -e "${green}[START] ${fase}${NC}"
+info "I will use proprietary PPA for newer version of nodejs"
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get -y install nodejs
+sudo apt-get -y install build-essential
+npm install -g grunt-cli
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
 

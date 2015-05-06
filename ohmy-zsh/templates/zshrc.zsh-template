@@ -16,13 +16,22 @@ alias apt-get="sudo apt-get"
 alias ports="netstat -tulanp"
 alias port="netstat -tulanp"
 
+alias gtree="git log --oneline --abbrev-commit  --graph --decorate --color"
+
 #SSH - Maquinas
 alias jadif="ssh a1-jadif-q-pla2"
 alias jadi="ssh a1-jadi-s-pla4"
 alias hum="ssh a1-hum-s-pla4"
 alias hunf="ssh a1-hunf-q-pla1"
-alias haloq="ssh a1-halo-q-pla1"
+alias haloq="ssh halo-q-pla1"
 alias halos="ssh a1-halo-s-pla4"
+
+# Common ALIASES
+alias gcode='grep -R -n -H -i --exclude-dir={.git,.svn,CVS,.idea} '
+alias zshrc='sublime ~/.zshrc'
+
+#Alias
+alias idea="/home/tqi_mmessora/development/apps/idea-IU-139.225.3/bin/idea.sh nosplash &> /dev/null &"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -64,8 +73,17 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export JAVA_HOME=/usr/local/java/jdk1.6.0_45
-export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin"
+#Colorize LS command
+eval `dircolors ~/.dircolors`
+
+export M2_HOME=/home/tqi_mmessora/apps/apache-maven-3.2.1
+export GRADLE_HOME=/home/tqi_mmessora/apps/gradle-1.11
+export GRAILS_HOME=/home/tqi_mmessora/apps/grails-2.3.7
+
+#export JAVA_HOME=/usr/local/java/jdk1.6.0_45
+export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51
+
+export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin:$GRAILS_HOME/bin:$GRADLE_HOME/bin:$M2_HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions

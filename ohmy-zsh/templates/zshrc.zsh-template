@@ -1,3 +1,5 @@
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -73,6 +75,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+
 #Colorize LS command
 eval `dircolors ~/.dircolors`
 
@@ -86,19 +89,10 @@ export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51
 export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin:$GRAILS_HOME/bin:$GRADLE_HOME/bin:$M2_HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export SUBLIME_HOME=$HOME/development/apps/sublime
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+#export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$SUBLIME_HOME/bin:$JAVA_HOME/bin"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export TERM=xterm-256color    
 
-#if [[ ! $TERM =~ screen ]]; then
-#    exec tmux
-#fi
+eval `dircolors ~/.dircolors`

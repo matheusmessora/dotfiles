@@ -12,16 +12,14 @@ alias port="netstat -tulanp"
 
 alias gtree="git log --oneline --abbrev-commit  --graph --decorate --color"
 
-alias jadif="ssh a1-jadif-q-pla2"
-alias jadi="ssh a1-jadi-s-pla4"
-alias hum="ssh a1-hum-s-pla4"
-alias hunf="ssh a1-hunf-q-pla1"
-alias haloq="ssh halo-q-pla1"
-alias halos="ssh a1-halo-s-pla4"
-
 alias gcode='grep -R -n -H -i --exclude-dir={.git,.svn,CVS,.idea} '
 alias zshrc='sublime ~/.zshrc'
 alias idea="/home/tqi_mmessora/development/apps/idea-IU-141.1010.3/bin/idea.sh nosplash &> /dev/null &"
+
+alias json="~/development/git/dotfiles/shells/json.sh"
+alias jsonm="~/development/git/dotfiles/shells/jsonmore.sh"
+alias copy="xclip -selection c"
+
 
 DISABLE_AUTO_UPDATE="true"
 plugins=(git mvn common-aliases)
@@ -32,13 +30,14 @@ source $ZSH/oh-my-zsh.sh
 
 eval `dircolors ~/.dircolors`
 
-export M2_HOME=/home/tqi_mmessora/apps/apache-maven-3.2.1
+export MONGO=/home/matheus/apps/mongodb-linux-x86_64-ubuntu1404-3.0.7
+export M2_HOME=/home/matheus/apps/apache-maven-3.3.9
 export GRADLE_HOME=/home/tqi_mmessora/apps/gradle-1.11
 export GRAILS_HOME=/home/tqi_mmessora/apps/grails-2.3.7
 
-export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51
+export JAVA_HOME=/home/matheus/apps/jdk1.8.0_65
 
-export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin:$GRAILS_HOME/bin:$GRADLE_HOME/bin:$M2_HOME/bin"
+export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin:$MONGO/bin:$GRAILS_HOME/bin:$GRADLE_HOME/bin:$M2_HOME/bin"
 
 export SUBLIME_HOME=$HOME/development/apps/sublime
 
@@ -46,3 +45,4 @@ export SUBLIME_HOME=$HOME/development/apps/sublime
 export TERM=xterm-256color    
 
 eval `dircolors ~/.dircolors`
+	

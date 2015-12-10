@@ -1,0 +1,10 @@
+1-  1 linha de identacao
+2-  nao usaro else
+3-  Wrap all primiites
+4-  Usar 1 ponto por linha
+5-  Nao abreviar
+6-  50 linhas por classe/ 7 linhas por metodo
+7-  Nao usar classes com mais de 2 atributos
+8-  first-class collections
+9-  Nao use set/get
+10- Nao usar heranca

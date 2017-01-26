@@ -42,6 +42,9 @@ echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 ###########################################################################
 fase="Configuring Terminal"
 echo -e "${green}[START] ${fase}${NC}"
+info "Should I configure? Y/n"
+read -n1 answer
+if [[ $answer = "Y" || $answer = "y" ]]; then
 info "Configuring ZSH... You must provide your root password!"
 chsh -s /bin/zsh
 info "Installing Oh-My-Zsh"
@@ -49,14 +52,21 @@ curl -L http://install.ohmyz.sh | sh
 rm $HOME/.zshrc -f
 ln -sf $HOME/development/git/dotfiles/ohmy-zsh/templates/zshrc.zsh-template $HOME/.zshrc
 info "Creating symbolink for MMM theme"
-ln -sf $HOME/development/git/dotfiles/ohmy-zsh/themes/mmm.zsh-theme $HOME/.oh-my-zsh/themes/mmm.zsh-theme
+ln -sf $HOME/development/git/dotfiles/ohmy-zsh/themes/mmm.zsh-theme $HOME/.oh-my-zsh/themes/#mmm.zsh-theme
+info "Creating symbolink for MMM Plugin"
+mkdir $HOME/.oh-my-zsh/plugins/mmm
+ln -sf $HOME/development/git/dotfiles/ohmy-zsh/plugins/mmm/mmm.plugin.zsh $HOME/.oh-my-zsh/plugins/mmm/mmm.plugin.zsh
 info "Creating symbolink for TMUX confs"
-ln -sf $HOME/development/git/dotfiles/tmux/tmux.conf $HOME/.conf.tmux
+ln -sf $HOME/development/git/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
 ###########################################################################
 fase="Cloning Essencial Repos"
 echo -e "${green}[START] ${fase}${NC}"
+info "Should I clone? Y/n"
+read -n1 answer
+if [[ $answer = "Y" || $answer = "y" ]]; then
 cd $HOME/development/git
 git clone https://github.com/matheusmessora/dotfiles
 git clone https://github.com/Anthony25/gnome-terminal-colors-solarized
@@ -65,11 +75,14 @@ git clone https://github.com/matheusmessora/xXx
 git clone https://github.com/matheusmessora/nfdonate
 git clone https://github.com/matheusmessora/muonline
 git clone https://github.com/matheusmessora/muonline-api2
-
+fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 ###########################################################################
 fase="Configuring GIT"
 echo -e "${green}[START] ${fase}${NC}"
+info "Should I configure? Y/n"
+read -n1 answer
+if [[ $answer = "Y" || $answer = "y" ]]; then
 info "Removing ${HOME}/.gitconfig file"
 rm $HOME/.gitconfig -f
 info "Provide your GIT user.name"
@@ -79,7 +92,7 @@ git config --global user.email matheus.messora.vpn@gmail.com
 git config --global push.default simple
 info "This is your actual GIT config file"
 cat $HOME/.gitconfig
-
+fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
 

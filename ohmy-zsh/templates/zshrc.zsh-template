@@ -22,9 +22,7 @@ alias copy="xclip -selection c"
 
 
 DISABLE_AUTO_UPDATE="true"
-plugins=(git common-aliases mmm)
-
-source $ZSH/oh-my-zsh.sh
+plugins=(git common-aliases mmm zsh-syntax-highlighting)
 
 
 
@@ -34,25 +32,21 @@ export MONGO=/home/matheus/apps/mongodb-linux-x86_64-ubuntu1404-3.0.7
 export M2_HOME=/home/matheus/apps/apache-maven-3.3.9
 export GRADLE_HOME=/home/tqi_mmessora/apps/gradle-1.11
 export GRAILS_HOME=/home/tqi_mmessora/apps/grails-2.3.7
+export SUBLIME_HOME=$HOME/development/apps/sublime
+export TERM=xterm-256color    
 
 # JDK Default
 #export JAVA_HOME=/home/matheus/apps/jdk1.8.0_65
-
 # JDK 1.8
 export JAVA_HOME=/opt/jdk1.8.0_121
-
 # JDK 1.7
 
-
 export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin:$MONGO/bin:$GRAILS_HOME/bin:$GRADLE_HOME/bin:$M2_HOME/bin"
-
-export SUBLIME_HOME=$HOME/development/apps/sublime
-
-
-export TERM=xterm-256color    
 
 eval `dircolors ~/.dircolors`
 
 # Razer Deathadder
 xinput set-prop 11 "Device Accel Constant Deceleration" 3
 xinput set-prop 11 "Device Accel Profile" -1
+
+source $ZSH/oh-my-zsh.sh

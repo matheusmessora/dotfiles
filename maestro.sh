@@ -58,6 +58,8 @@ mkdir $HOME/.oh-my-zsh/plugins/mmm
 ln -sf $HOME/development/git/dotfiles/ohmy-zsh/plugins/mmm/mmm.plugin.zsh $HOME/.oh-my-zsh/plugins/mmm/mmm.plugin.zsh
 info "Creating symbolink for TMUX confs"
 ln -sf $HOME/development/git/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+info "Installing zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 

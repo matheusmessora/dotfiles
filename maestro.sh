@@ -160,26 +160,13 @@ echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 
 
 ###########################################################################
-fase="Installing WebStorm and IntelliJ"
+fase="Installing Spotify"
 echo -e "${green}[START] ${fase}${NC}"
 info "Should I download and install? Y/n"
 read -n1 answer
 if [[ $answer = "Y" || $answer = "y" ]]; then
-info "Downloading IntelliJ 14.0.2"
-cd $HOME/tmp
-wget --no-check-certificate http://download-cf.jetbrains.com/idea/ideaIU-14.0.2.tar.gz
-info "Unzipping IntelliJ folder"
-tar -zxvf ideaIU-14.0.2.tar.gz
-mv $HOME/tmp/idea-IU-139.659.2 $HOME/apps -fv
-sudo ln -sf $HOME/apps/idea-IU-139.659.2/bin/idea.sh /usr/local/bin/idea
-
-info "Downloading WebStorm 9"
-cd $HOME/tmp
-wget --no-check-certificate http://download.jetbrains.com/webstorm/WebStorm-10.0.2.tar.gz
-info "Unzipping WebStorm folder"
-tar -zxvf WebStorm-10.0.2.tar.gz
-mv $HOME/tmp/WebStorm-141.728 $HOME/apps -fv
-sudo ln -sf $HOME/apps/WebStorm-141.728/bin/webstorm.sh /usr/local/bin/webstorm
+sudo chmod +x spotify-installer.sh
+sh spotify-installer.sh
 fi
 echo -e  "${green}[ END ] ${fase}\n\n${NC}"
 

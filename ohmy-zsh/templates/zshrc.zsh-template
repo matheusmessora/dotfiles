@@ -39,7 +39,7 @@ export GRAILS_HOME=/home/tqi_mmessora/apps/grails-2.3.7
 #export JAVA_HOME=/home/matheus/apps/jdk1.8.0_65
 
 # JDK 1.8
-export JAVA_HOME=/opt/jdk1.8.0_112
+export JAVA_HOME=/opt/jdk1.8.0_121
 
 # JDK 1.7
 
@@ -52,4 +52,7 @@ export SUBLIME_HOME=$HOME/development/apps/sublime
 export TERM=xterm-256color    
 
 eval `dircolors ~/.dircolors`
-	
+
+# Razer Deathadder
+xinput set-prop 11 "Device Accel Constant Deceleration" 3
+xinput set-prop 11 "Device Accel Profile" -1
